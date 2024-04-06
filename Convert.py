@@ -39,14 +39,14 @@ def CreateInvertedIndex(documents, docCount, wc):
             if(str(word) not in '.,;:\'\\n\"[]-()' and str(word).isalpha()):
                 lemmaword = word.lemma_.lower()
                 if(lemmaword not in worddict):
-                    worddict[lemmaword] = [[wc, int(1), int(1)],[[document[1],int(1)]]]
+                    worddict[lemmaword] = [[wc, int(1), int(1)],[[document[0], int(1)]]]
                     wc+=1
                 else:
                     #if its a new document then add 1 to document frequency
                     if(worddict[lemmaword][0][2] == 0):
                         worddict[lemmaword][0][1] += 1
                         worddict[lemmaword][0][2] = 1
-                        worddict[lemmaword][1].append([document[1], int(1)])
+                        worddict[lemmaword][1].append([document[0], int(1)])
                     else:
                         worddict[lemmaword][1][-1][1] += 1
 
@@ -72,7 +72,7 @@ def Writeto(worddict, cdic):
     sorted_dict2 = sorted(worddict.items(), key=lambda x:x[1][0])
 
     for sets in sorted_dict2:
-        unigramfile.write(str(sets[1][0][0]) + " " + str(sets[0]) + " " + str(sets[1][0][1]) + " " + str(sets[1][1]).replace('[', '(').replace(']',')').replace('),' , ')')[1:-1] + "\n")
+        unigramfile.write(str(sets[1][0][0]) + " " + str(sets[0]) + " " + str(sets[1][0][1]) + " " + str(sets[1][1]).replace('[', '(').replace(']',')').replace('),' , ')')[1:-1].replace(" ", "") + "\n")
 
     unigramfile.close()
     writetodict.close()
