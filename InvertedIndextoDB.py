@@ -40,9 +40,9 @@ def main():
             t5.append(t4)
         t.append(t5)
         InvInd.append(t)
-
-    print(InvInd[0])
+    Collection.delete_many({})
     for x0 in InvInd:
+       print(x0[0], x0[3])
        Collection.insert_one({"_id": x0[0], "keyWord": x0[1], "doc-Freq" : x0[2], "mList" : x0[3] })
     return 0
 main()
