@@ -28,9 +28,9 @@ def CreateInvertedIndex(documents, docCount, wc):
     #iterate all docs
     for document in documents:
         end = timeit.timeit()
-        print(str(docCount) + " " + str(document[0]) + " " + str(end - start))
+        print(str(docCount) + " " + str(document[1]) + " " + str(end - start))
         #load model
-        doc = np(document[2])
+        doc = np(document[3])
 
         #Get Doc Code
         #iterate all words in one doc

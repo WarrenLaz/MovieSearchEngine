@@ -3,9 +3,9 @@
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
 const database = 'MovieInvertedIndex';
-const collection = 'MovieCollection';
+const collection = 'Iv-Id-m';
 
-// Create a new database.
+// The current database to use.
 use(database);
 
 // Create a new collection.

@@ -4,7 +4,7 @@ from pymongo.server_api import ServerApi
 uri = 'mongodb+srv://usern:abcd1234@engine0001.vapavh9.mongodb.net/'
 client = MongoClient(uri, server_api = ServerApi('1'))
 f = open("InvertedIndex.txt", "r")
-
+#635378
 def pingM():
     try:
         client.admin.command('ping')
@@ -24,6 +24,7 @@ def getInvertedIndex(file):
 def main():
     pingM()
     Collection = getCollection("MovieInvertedIndex", "Iv-Id-m")
+    Collection.delete_many({})
     InvInd = []
     for x in getInvertedIndex(f):
         t = []
@@ -46,3 +47,4 @@ def main():
        Collection.insert_one({"_id": x0[0], "keyWord": x0[1], "doc-Freq" : x0[2], "mList" : x0[3] })
     return 0
 main()
+print('OK 200')
