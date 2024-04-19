@@ -43,7 +43,7 @@ def Freq(list):
             freq[item] += 1
         else:
             freq[item] = 1
-    return freq
+    return freq 
 
 def getdocs(query1, dblist1):
     documents = []
@@ -70,12 +70,12 @@ def main():
     for x in ds:
         print(x[1])
         l += x[1]
+
     for x in ds:
-        print(math.log((1+l)/(x[1]+1)))
+        print(1*math.log((1+l)/(x[1]+1)))
 
 
-
-
-
-main()
+x = {"hi": 5}
+for i in x:
+    print(i)
     

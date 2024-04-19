@@ -31,7 +31,6 @@ def CreateInvertedIndex(documents, docCount, wc):
         print(str(docCount) + " " + str(document[1]) + " " + str(end - start))
         #load model
         doc = np(document[3])
-
         #Get Doc Code
         #iterate all words in one doc
         for word in doc:
@@ -39,14 +38,14 @@ def CreateInvertedIndex(documents, docCount, wc):
             if(str(word) not in '.,;:\'\\n\"[]-()' and str(word).isalpha()):
                 lemmaword = word.lemma_.lower()
                 if(lemmaword not in worddict):
-                    worddict[lemmaword] = [[wc, int(1), int(1)],[[document[0], int(1)]]]
+                    worddict[lemmaword] = [[wc, int(1), int(1)],[[document[0], int(1), len(doc)]]]
                     wc+=1
                 else:
                     #if its a new document then add 1 to document frequency
                     if(worddict[lemmaword][0][2] == 0):
                         worddict[lemmaword][0][1] += 1
                         worddict[lemmaword][0][2] = 1
-                        worddict[lemmaword][1].append([document[0], int(1)])
+                        worddict[lemmaword][1].append([document[0], int(1), len(doc)])
                     else:
                         worddict[lemmaword][1][-1][1] += 1
 

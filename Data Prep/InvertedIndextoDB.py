@@ -46,5 +46,6 @@ def main():
        print(x0[0], x0[3])
        Collection.insert_one({"_id": x0[0], "keyWord": x0[1], "doc-Freq" : x0[2], "mList" : x0[3] })
     return 0
+
 main()
 print('OK 200')
